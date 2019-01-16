@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="assets/img/favicons/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png" />
+
+    <title>Tambah</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <style type="text/css" rel="stylesheet">
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #hide {
+            display: none;
+        }
+
+        #show {
+            display: true;
+        }
+
+        #data {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="ajax" method="POST" action="http://belajarapi.masbroweb.com/api/todos">
+
+        <div class="
+        container ">
+
+            <div class=" row">
+                <div class="col">
+                    <nav aria-label="breadcrumb" class="mt-3 offset-3" style="width: 50%">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page"><a href="belajarAjax.html">To
+                                    Do</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
+                        </ol>
+                    </nav>
+                    <!-- <div class="form-group">
+                        <label for="exampleInputUserId">User ID : </label>
+                        <input type="number" class="form-control" id="exampleInputUserId" aria-describedby="userHelp"
+                            placeholder="input your User ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputTitle">Title</label>
+                        <input type="text" class="form-control" id="exampleInputTitle" placeholder="input your title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCompleted">Completed</label>
+                        <input type="text" class="form-control" id="exampleInputCompleted" placeholder="Show your completed">
+                    </div>
+                    <button type="submit" class="btn btn-outline-secondary btn-block mb-3">Submit</button> -->
+                    <div class="card text-white mb-3 offset-3" style="width: 50%">
+                        <div class="card-header text-center bg-success">TAMBAH DATA</div>
+                        <div class="card-body">
+                            <div id="progress-bar" class="progress d-none mt-3">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                            </div>
+                            <!-- test -->
+                            <div class="alert alert-success alert-dismissible fade" role="alert" id="pesanSukses">
+                                <span></span>
+                                <button type="button" id="hide" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <!-- card form -->
+                            <div class="form-group">
+                                <label for="userId" class="text-success">User ID :</label>
+                                <input type="number" name="userId" class="form-control" id="userId" aria-describedby="userIdHelp"
+                                    placeholder="Enter your User ID" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title" class="text-success">Title</label>
+                                <input type="text" name="title" class="form-control" id="title" aria-describedby="titleHelp"
+                                    placeholder="Enter your Title" required>
+                            </div>
+                            <div class="form-group text-success">
+                                <label for="completed">Completed</label>
+                                <select class="form-control" name="completed" id="completed" required>
+                                    <option></option>
+                                    <option>true</option>
+                                    <option>false</option>
+                                </select>
+                            </div>
+                            <input type="submit" id="show" value="Tambahkan !" class="btn btn-outline-success btn-block mb-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('form.ajax').on('submit', function (event) {
+            event.preventDefault();
+            var that = $(this),
+                url = that.attr('action'),
+                type = that.attr('method'),
+                data = {};
+
+            that.find('[name]').each(function (index, value) {
+
+                var that = $(this),
+                    name = that.attr('name'),
+                    value = that.val();
+
+                data[name] = value;
+
+            });
+            console.log(data)
+
+            $('#progress-bar').removeClass('d-none');
+            $.ajax({
+                url: url,
+                type: type,
+                data: data,
+                success: function (response) {
+                    $('#progress-bar').addClass('d-none');
+                    // console.log(response);
+                    $('div#pesanSukses span').html(response);
+                    $('div#pesanSukses').addClass('show');
+                    // $("div#pesanSukses").removeClass("hide");
+                    alert('data berhasil ditambahkan');
+                }
+            });
+            $('form.ajax').each(function () {
+
+                this.reset();
+            });
+            // $('div#pesanSukses').append();
+            // $('#show').click(function () {
+
+            //     $('#show').css('display', 'none');
+            //     $('#data').show();
+            //     $('#hide').show();
+            // });
+            // $('#hide').click(function () {
+
+            //     $('#hide').css('display', 'none');
+            //     $('#data').hide();
+            //     $('#show').show();
+            // });
+
+            //add data
+        });
+    </script>
+</body>
+
+</html>

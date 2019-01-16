@@ -1,0 +1,68 @@
+// SINGLE DIMENTIONAL ARRAY
+$ar = [1,2,3,4];
+
+// MULTI DIMENTIONAL ARRAY
+$ar = [
+    1 => 'a',
+]
+
+// OBJECT JAVASCRIPT
+var data = {
+    "userId": 1, => PROPERTY
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+CONSOLE.LOG(data.userId) // MUNCULKAN PROPERTY userId DARI OBJECT DATA
+CONSOLE.LOG(data.title) // MUNCULKAN PROPERTY title DARI OBJECT DATA
+
+// ARRAY JAVASCRIPT
+[
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+]
+console.log(data['userId']) // MUNCULKAN KEY userId DARI ARRAY DATA
+console.log(data['title']) // MUNCULKAN KEY title DARI ARRAY DATA
+
+_________________________________________________________________________________________________
+
+HTTP request Methods ==>
+
+HTTP mendefinisikan seperangkat metode permintaan untuk menunjukkan tindakan yang diinginkan yang akan dilakukan untuk sumber daya tertentu. Meskipun mereka juga bisa menjadi kata benda, metode permintaan ini kadang-kadang disebut sebagai verba HTTP. Masing-masing menerapkan semantik yang berbeda, namun beberapa fitur umum digunakan bersama oleh mereka: mis. Metode permintaan dapat berupa safe, idempotent, atau cacheable.
+ 
+GET
+    Metode GET meminta representasi sumber daya yang ditentukan. Permintaan menggunakan GET seharusnya hanya mengambil data..
+HEAD
+    Metode HEAD meminta tanggapan yang identik dengan permintaan GET, namun tanpa respon body.
+POST
+    Metode POST digunakan untuk mengirimkan entitas ke sumber daya yang ditentukan, sering menyebabkan perubahan pada keadaan atau efek samping pada server.
+PUT
+
+    Metode PUT menggantikan semua representasi terkini dari sumber target dengan muatan permintaan.
+DELETE
+    Metode DELETE akan menghapus sumber daya yang ditentukan.
+CONNECT
+
+    Metode CONNECT menetapkan terowongan ke server yang diidentifikasi oleh sumber target.
+OPTIONS
+    Metode OPTIONS digunakan untuk menggambarkan opsi komunikasi untuk sumber target.
+TRACE
+
+    Metode TRACE melakukan tes pesan loop-back di sepanjang jalan menuju sumber daya target.
+PATCH
+    Metode PATCH digunakan untuk menerapkan modifikasi sebagian pada sumber daya. 
+
+yang sering dipakai -> Get, Post, Delete dan Patch; 
+    Delete -> untuk meminta data dihapus
+
+_______________________________________________________________________________________________________________
+
+REST(ful) API -> 
+API -> application Programming Interface
+
+_______________________________________________________________________________________________________________
+OPERATOR DALAM JAVASCRIPT
+
+OPERATOR -> simbol untuk melakukan sebuah operasi
